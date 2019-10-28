@@ -9,16 +9,22 @@ int main(){
   struct node *p0 = NULL;
 
   printf("\nBegin testing for linkedlist: \n");
-  printf("\nPrinting empty list: \n");
+  printf("\nPrinting empty list (NULL): \n");
   print_list(p0);
 
-  printf("\nAdding numbers -256 through 256: \n");
+  printf("\nAdding numbers -256 through 256 (testing insert_front and print_list): \n");
   int i;
   for (i = -256; i <= 256; i++){
      p0 = insert_front(p0, i);
   }
   print_list(p0);
 
+  printf("Testing free_list: \n");
+
+  p0 = free_list(p0);
+
+  printf("Printing the freed p0 (should be NULL)\n");
+  print_list(p0);
 
   return 0;
 }
