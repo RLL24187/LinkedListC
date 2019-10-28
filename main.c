@@ -8,16 +8,16 @@ int main(){
 
   struct node *p0 = NULL;
 
-  printf("Begin testing for linkedlist: \n");
-  printf("Printing empty list: \n");
+  printf("\nBegin testing for linkedlist: \n");
+  printf("\nPrinting empty list: \n");
   print_list(p0);
 
-  printf("Adding numbers -256 through 256: \n");
+  printf("\nAdding numbers -256 through 256: \n");
   int i;
-  for (i = -256; i < 257; i++){
+  for (i = -256; i <= 256; i++){
      p0 = insert_front(p0, i);
   }
-  print_list(p0)
+  print_list(p0);
 
 
   return 0;
