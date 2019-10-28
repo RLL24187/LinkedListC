@@ -1,14 +1,22 @@
-// Write a simple linked list program. You will need a define a node struct with the following data members:
-// A piece of data (your choice)
-// A pointer to the next node
-// Here's an example of what the struct could look like:
-struct node { int i; struct node *next; };
+#include <stdlib.h>
+#include <stdio.h>
+#include "linkedlist.h"
+
+//struct node { int i; struct node *next; };
 
 // Create the following functions:
-void print_list(struct node * n);
+void print_list(struct node * n){
+  printf("Printing node at address %p\n [ ", n);
+  struct node *current = n;
+  while (current){
+    printf("%d ", n->i);
+    current = n->next;
+  }
+  printf("]\n");
+}
 // Should take a pointer to a node struct and print out all of the data in the list
 
-struct node * insert_front(struct node * n, int x);
+struct node * insert_front(struct node * n, int i);
 // Should take a pointer to the existing list and the data to be added, create a new node and put it at the beginning of the list.
 // The second argument should match whatever data you contain in your nodes.
 // Returns a pointer to the beginning of the list.
