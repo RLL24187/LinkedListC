@@ -11,20 +11,54 @@ int main(){
   printf("\nBegin testing for linkedlist: \n");
   printf("\nPrinting empty list (NULL): \n");
   print_list(p0);
+  //
+  // printf("\nAdding numbers -256 through 256 (testing insert_front and print_list): \n");
+  // int i;
+  // for (i = -256; i <= 256; i++){
+  //    p0 = insert_front(p0, i);
+  // }
+  // print_list(p0);
+  // above works, I jsut wanted to test on larger numbers, but output is very long, so I made fewer numbers
 
-  printf("\nAdding numbers -256 through 256 (testing insert_front and print_list): \n");
+  printf("\nAdding numbers -10 through 10 (testing insert_front and print_list): \n");
   int i;
-  for (i = -256; i <= 256; i++){
+  for (i = -10; i <= 10; i++){
      p0 = insert_front(p0, i);
   }
   print_list(p0);
 
-  printf("Testing free_list: \n");
+  printf("\nTesting remove_node: \n");
+  printf("Removing 0 (middle of list): \n");
+  remove_node(p0, 0);
+  print_list(p0);
+  printf("Address should not be different.\n");
+
+  printf("Removing -10 (end of list): \n");
+  remove_node(p0, -10);
+  print_list(p0);
+  printf("Address should not be different.\n");
+
+  printf("Removing 10 (beginning of list)\n");
+  remove_node(p0, 10);
+  print_list(p0);
+  printf("Address should be different.\n");
+
+  printf("Removing 11 (not in list)\n");
+  remove_node(p0, 11);
+  print_list(p0);
+  printf("Address should not be different, neither should the list.\n");
+
+  printf("\nTesting free_list: \n");
 
   p0 = free_list(p0);
 
-  printf("Printing the freed p0 (should be NULL)\n");
+  printf("\nPrinting the freed p0 (should be NULL)\n");
   print_list(p0);
+
+  printf("Removing 0 from empty list: \n");
+  remove_node(p0, 0);
+  print_list(p0);
+  printf("Address should not be different.\n");
 
   return 0;
 }
