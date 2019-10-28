@@ -39,7 +39,30 @@ struct node * free_list(struct node *n){
 }
 // Should take a pointer to a list as a parameter and then go through the entire list freeing each node and return a pointer to the beginning of the list (which should be NULL by then).
 
-struct node * remove_node(struct node *front, int data);
+struct node * remove_node(struct node *front, int data){
+  if (front != NULL){
+    struct node *current = front;
+    if (front->i == data){ //if first node has data
+      free(front);
+      current = current->next;
+      front = current;
+    }
+    else{
+      struct node *nextNode = current->next;
+      while (nextNode){
+        if (nextNode->i == data){
+          // if the data of the next node is equal to data
+          // free the next node and set the current's next to that next node's next
+          current->next = nextNode->next;
+          free(nextNode);
+        }
+        current = current->next;
+        nextNode = nextNode->next;
+      }
+    }
+  }
+  return front;
+}
 // Remove the node containing data from the list pointed to by front.
 // If data is not in the list, nothing is changed.
 // Returns a pointer to the beginning of the list.
