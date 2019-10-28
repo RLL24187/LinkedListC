@@ -6,11 +6,11 @@
 
 // Create the following functions:
 void print_list(struct node * n){
-  printf("Printing node at address %p\n [ ", n);
+  printf("Printing node at address %p\n[ ", n);
   struct node *current = n;
   while (current){
-    printf("%d ", n->i);
-    current = n->next;
+    printf("%d ", current->i);
+    current = current->next;
   }
   printf("]\n");
 }
